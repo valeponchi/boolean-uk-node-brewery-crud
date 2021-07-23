@@ -1,4 +1,4 @@
-let tours = [
+const tours = [
 	{
 		id: 1,
 		breweryId: 9242,
@@ -21,19 +21,19 @@ const toursRouter = express.Router()
 toursRouter.get('/', (req, res) => {
 	//what's after query is what comes after the ? in the url
 	// "/breweries?tourDate"
-	// const breweryTourDate = req.query.tourDate
+	const breweryTourDate = req.query.tourDate
 
-	// if (breweryTourDate) {
-	// 	const filteredTours = tours.filter(tour => tour.date === breweryTourDate)
+	if (breweryTourDate) {
+		const filteredTours = tours.filter(tour => tour.date === breweryTourDate)
 
-	// 	const response = filteredTours.length
-	// 		? filteredTours
-	// 		: "Can't find the tours you are looking for.."
+		const response = filteredTours.length
+			? filteredTours
+			: "Can't find the tours you are looking for.."
 
-	// 	res.json({ tour: response })
-	// } else {
-	res.json({ tours: tours })
-	// }
+		res.json({ tour: response })
+	} else {
+		res.json({ tours: tours })
+	}
 })
 
 // // GET endpoint /brewery/:id

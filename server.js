@@ -10,7 +10,9 @@ const toursRouter = require('./src/resources/tours/routes')
 
 // Middlewares
 app.use(morgan('dev'))
+
 app.use(express.json()) //parse JSON body from the requests
+//gives the ability to understand JSON
 
 // Breweries Routes
 app.use('/breweries', breweriesRouter)
